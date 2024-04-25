@@ -9,8 +9,6 @@ using namespace std;
 void Solution::dfs_traversal(TreeNode *currentNode, vector<vector<int>> &allLevels, int currentLevel)
 {
     if (currentNode == nullptr) return;
-    // cout<<"Traverse level:"<< currentLevel <<endl;
-
     // pick node
     if (currentLevel >= allLevels.size()) {
         allLevels.push_back({currentNode->val});
@@ -19,13 +17,9 @@ void Solution::dfs_traversal(TreeNode *currentNode, vector<vector<int>> &allLeve
     }
 
     // traverser on left
-    if (currentNode->left) {
-        dfs_traversal(currentNode->left, allLevels, currentLevel + 1);
-    }
+    dfs_traversal(currentNode->left, allLevels, currentLevel + 1);
     // traverser on right
-    if (currentNode->right) {
-        dfs_traversal(currentNode->right, allLevels, currentLevel + 1);
-    }
+    dfs_traversal(currentNode->right, allLevels, currentLevel + 1);
 }
 
 /**
